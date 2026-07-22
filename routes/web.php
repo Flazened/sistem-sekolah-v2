@@ -6,16 +6,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::name('students.')->prefix('students')->group(function(){
-Route::get('/', [StudentController::class, 'index'])->name('index');
-
-Route::get('/', function () {
-    return "Goat Game PC junior";
+// Daftar siswa
+Route::get('/students', function(){
+    return "Halaman Daftar siswa";
 })->name('students.index');
 
-Route::get('/{id}', function ($id) {
-    return "Menampilakn id:{$id}";
+Route::get('students/{id}', function(string $id){
+    return "Menampilkan ID:{$id}";
 })->name('students.show');
-});
-
